@@ -38,6 +38,7 @@ public class SecurityConfiguration {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.csrf(crsf -> crsf.disable())
@@ -48,6 +49,7 @@ public class SecurityConfiguration {
                             .requestMatchers(HttpMethod.GET, "/test-api-bem-vindo").hasAuthority(PermissionEnum.ADMIN.toString())
                             .requestMatchers(HttpMethod.GET, "/users").hasAuthority(PermissionEnum.USER.toString())
                             .requestMatchers(HttpMethod.POST, "/users").hasAuthority(PermissionEnum.ADMIN.toString())
+                            .requestMatchers(HttpMethod.POST, "/task-manager").hasAuthority(PermissionEnum.ADMIN.toString())
                             .anyRequest()
                             .authenticated();
 

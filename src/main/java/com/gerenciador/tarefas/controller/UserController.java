@@ -24,8 +24,8 @@ public class UserController {
 
     @PutMapping
     public ResponseEntity<String> updateUser(@RequestBody User user) {
-        User createdUser = userService.addUser(user);
-        return new ResponseEntity<>("New user created " + createdUser.getUsername(), HttpStatus.CREATED);
+        User modifiedUser = userService.addUser(user);
+        return new ResponseEntity<>("User modified " + modifiedUser.getUsername(), HttpStatus.OK);
     }
 
     @GetMapping

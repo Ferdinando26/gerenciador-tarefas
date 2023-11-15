@@ -9,8 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 @SpringBootApplication
 public class GerenciadorTarefasApplication implements CommandLineRunner {
@@ -24,26 +23,21 @@ public class GerenciadorTarefasApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
 		User user = new User();
 		user.setUsername("admin");
 		user.setPassword("123456");
 
-		List<Role> roles = new ArrayList<>();
-
-		Role adminRole = new Role();
-		adminRole.setName(PermissionEnum.ADMIN);
-
-		Role userRole = new Role();
-		userRole.setName(PermissionEnum.USER);
-
-		roles.add(adminRole);
-		roles.add(userRole);
-
-		user.setRoles(roles);
+		user.setRoles(Arrays.asList(
+				createRole(PermissionEnum.ADMIN),
+				createRole(PermissionEnum.USER)
+		));
 
 		userService.addUser(user);
+	}
 
-
+	private Role createRole(PermissionEnum permission) {
+		Role role = new Role();
+		role.setName(permission);
+		return role;
 	}
 }

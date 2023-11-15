@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -51,6 +52,13 @@ public class UserService {
 
     public List<User> getAllUsers() {
         return this.iUserRepository.findAll();
+    }
+
+
+    public Optional<User> findById(Long userId){
+
+        return this.iUserRepository.findById(userId);
+
     }
 
 }
