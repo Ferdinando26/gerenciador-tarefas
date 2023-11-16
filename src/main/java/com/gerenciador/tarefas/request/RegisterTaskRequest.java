@@ -6,20 +6,28 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_CREATOR_REQUIRED;
+import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_ESTIMATED_TIME_REQUIRED;
+import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_TITLE_REQUIRED;
+import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_TOO_LARGE_DESCRIPTION;
+
 @Getter
 @Setter
 public class RegisterTaskRequest {
 
 
-    @NotBlank(message = "{register.task.request.title.required}")
+
+
+    @NotBlank(message = REGISTER_TITLE_REQUIRED)
     private String title;
 
-    @Length(max = 50, message = "{register.task.request.description.limit}")
+    @Length(max = 150, message = REGISTER_TOO_LARGE_DESCRIPTION)
     private String description;
 
+    @NotNull(message = REGISTER_CREATOR_REQUIRED)
     private Long creatorId;
 
-    @NotNull(message = "register.task.request.estimatedTimeAmount.required}")
+    @NotNull(message = REGISTER_ESTIMATED_TIME_REQUIRED)
     private Integer estimatedTimeAmount;
 
 }
