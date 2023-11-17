@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_CREATOR_REQUIRED;
-import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_ESTIMATED_TIME_REQUIRED;
-import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_TITLE_REQUIRED;
-import static com.gerenciador.tarefas.util.ErrorMessages.REGISTER_TOO_LARGE_DESCRIPTION;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.REGISTER_CREATOR_REQUIRED;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.REGISTER_ESTIMATED_TIME_REQUIRED;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.REGISTER_TITLE_REQUIRED;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.REGISTER_TOO_LARGE_DESCRIPTION;
 
 @Getter
 @Setter

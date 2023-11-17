@@ -7,9 +7,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
-import static com.gerenciador.tarefas.util.ErrorMessages.UPDATE_ESTIMATED_TIME_REQUIRED;
-import static com.gerenciador.tarefas.util.ErrorMessages.UPDATE_TITLE_REQUIRED;
-import static com.gerenciador.tarefas.util.ErrorMessages.UPDATE_TOO_LARGE_DESCRIPTION;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.UPDATE_ESTIMATED_TIME_REQUIRED;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.UPDATE_TITLE_REQUIRED;
+import static com.gerenciador.tarefas.exceptions.ErrorMessages.UPDATE_TOO_LARGE_DESCRIPTION;
 
 @Getter
 @Setter
